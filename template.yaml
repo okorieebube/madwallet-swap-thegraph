@@ -1,0 +1,25 @@
+specVersion: 0.0.4
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: SwapRouter
+    network: {{ network }}
+    source:
+      address: "{{ swap.address }}"
+      abi: SwapRouter
+      startBlock: {{ swap.startBlock }}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - SwapItem
+      abis:
+        - name: SwapRouter
+          file: ./abis/SwapRouter.json
+      eventHandlers:
+        - event: Swap(string,indexed address,indexed address,uint256,indexed address,uint256,address,uint256)
+          handler: handleSwap
+      file: ./src/madwallet-swap.ts
+  

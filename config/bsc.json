@@ -1,0 +1,7 @@
+{
+  "network": "bsc",
+  "swap": {
+    "address": "0xe41f0ff3f4d90bb1c4e32714532e064f9ea95f19",
+    "startBlock": "20077693"
+  }
+}

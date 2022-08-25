@@ -1,0 +1,19 @@
+{
+  "name": "madwalletswap",
+  "license": "UNLICENSED",
+  "scripts": {
+    "codegen": "graph codegen subgraph.yaml",
+    "build": "graph build subgraph.yaml",
+    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ hawkofsky/madwalletswap",
+    "create-local": "graph create --node http://localhost:8020/ hawkofsky/madwalletswap",
+    "remove-local": "graph remove --node http://localhost:8020/ hawkofsky/madwalletswap",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 hawkofsky/madwalletswap",
+    "deploy:bsc": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ hawkofsky/madwalletswap subgraph.yaml",
+    "prepare:bsc": "mustache config/bsc.json template.yaml > subgraph.yaml"
+  },
+  "dependencies": {
+    "@graphprotocol/graph-cli": "0.30.4",
+    "@graphprotocol/graph-ts": "0.27.0",
+    "mustache": "^4.2.0"
+  }
+}
